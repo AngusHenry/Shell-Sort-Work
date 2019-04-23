@@ -27,47 +27,44 @@ public class ShellSortSorting {
        
        
        for(j = 0; j < i; j++){
+           // geting the random numbers to sort
         maths = (int)(Math.random() * i);
           random[j] = maths;
        }
         ShellSortSorting ob = new ShellSortSorting(); 
+        long start = System.nanoTime(); // get starting time
         ob.sort(random);
+        long end = System.nanoTime(); // get ending time
+         System.out.println("Elapsed time: " + (end - start) + " nano seconds");
         printArray(random); 
     }
-    int sort (int nums[]){
-   int n = nums.length;
-   for (int k = n/2; k > 0; k /=2){
-       for (int i = k; i < n; i+=1){
-           int temp = nums[i];
-           int comp;
-           for (comp = i; comp >= k && nums[comp - k] > temp; comp -= k){
-               nums[comp] = nums[comp - k];
-               nums[comp] = temp;
-           } 
-       }
-   }
-   return 0;
-    }
     
-//    nt sort(int arr[]) { 
-//        int n = arr.length; 
-//        for (int gap = n/2; gap > 0; gap /= 2) { 
-//            for (int i = gap; i < n; i += 1) { 
-//                int temp = arr[i]; 
-//                int j; 
-//                for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) 
-//                    arr[j] = arr[j - gap]; 
-//                arr[j] = temp; 
-//            } 
-//        } 
-//        return 0; 
-//    }
+    int sort(int arr[]) { 
+        int n = arr.length; 
+        for (int gap = n/2; gap > 0; gap /= 2){
+            // creates the gaps by dividing the length and then the gap into 2
+            for (int i = gap; i < n; i += 1) {
+                // moving the gap along the array
+                int temp = arr[i]; 
+                int j; 
+                for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) 
+                    // checking the numbers and then switching them if needed
+                    arr[j] = arr[j - gap]; 
+                arr[j] = temp; 
+            } 
+        } 
+        return 0; 
+        // return 0 because it needs a return so we could being in the array
+    }
+   /*
+    * Prints out the now sorted numbers
+    */
     static void printArray(int nums[]) 
     { 
         int n = nums.length; 
         for (int i=0; i<n; ++i) 
             System.out.print(nums[i] + " "); 
         System.out.println(); 
-    } 
+    }
     
 }
