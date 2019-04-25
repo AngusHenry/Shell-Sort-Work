@@ -1,5 +1,5 @@
 /*
- * Angus Henry
+ * Angus, Nick, Vilmos, Lewis
  */
 
 package shellsortsorting;
@@ -17,7 +17,7 @@ public class ShellSortSorting {
      */
     public static void main(String[] args) {
          Scanner input = new Scanner(System.in);
-        System.out.println ("How many numbers do you want to sort 10 ,100, 1000, 10000, 100000");
+        System.out.println ("How many numbers do you want to sort?");
         int number;
         int i, j;
         int maths;
@@ -32,10 +32,14 @@ public class ShellSortSorting {
           random[j] = maths;
        }
         ShellSortSorting ob = new ShellSortSorting(); 
-        long start = System.nanoTime(); // get starting time
+        //long start = System.nanoTime(); // get starting time
+        long start = System.currentTimeMillis();
         ob.sort(random);
-        long end = System.nanoTime(); // get ending time
-         System.out.println("Elapsed time: " + (end - start) + " nano seconds");
+        //long end = System.nanoTime(); // get ending time
+        long end = System.currentTimeMillis();
+        //double seconds = end/1000000000;
+         System.out.println("Elapsed time: " + (end - start) + " Milliseconds");
+         //System.out.println (seconds + "seconds");
         printArray(random); 
     }
     
